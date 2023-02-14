@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mesto</title>
+    <link rel="stylesheet" href="pages/index.css">
+  </head>
+  <body class="page">
+    <div class="page__container">
+      <header class="header">
+        <img src="./images/logo.svg" alt="Логотип" class="header__logo">
+      </header>
+      <main>
+        <section class="profile">
+          <div class="profile__info">
+            <img
+              class="profile__avatar"
+              src="./images/avatar.jpg"
+              alt="Аватар Профиля">
+            <div class="profile__name-block">
+              <h1 class="profile__name">Жак-Ив Кусто</h1>
+              <button type="button" class="profile__button-edit button"></button>
+              <p class="profile__job">Исследователь океана</p>
+            </div>
+          </div>
+          <button type="button" class="profile__button-add button"></button>
+        </section>
+        <section class="elements">
+          <div class="element">
+            <img
+              src="./images/Maldives.jpg"
+              alt="Фотокарточка"
+              class="element__image">
+            <div class="element__title-block">
+              <h2 class="element__title">Maldives</h2>
+              <button type="button" class="element__button-like button"></button>
+            </div>
+          </div>
+          <div class="element">
+            <img
+              src="./images/Thailand.jpg"
+              alt="Фотокарточка"
+              class="element__image">
+            <div class="element__title-block">
+              <h2 class="element__title">Thailand</h2>
+              <button type="button" class="element__button-like button"></button>
+            </div>
+          </div>
+          <div class="element">
+            <img
+              src="./images/Philippines.jpg"
+              alt="Фотокарточка"
+              class="element__image">
+            <div class="element__title-block">
+              <h2 class="element__title">Philippines</h2>
+              <button type="button" class="element__button-like button"></button>
+            </div>
+          </div>
+          <div class="element">
+            <img
+              src="./images/Hawaii.jpg"
+              alt="Фотокарточка"
+              class="element__image">
+            <div class="element__title-block">
+              <h2 class="element__title">Hawaii</h2>
+              <button type="button" class="element__button-like button"></button>
+            </div>
+          </div>
+          <div class="element">
+            <img
+              src="./images/Mexico.jpg"
+              alt="Фотокарточка"
+              class="element__image">
+            <div class="element__title-block">
+              <h2 class="element__title">Mexico</h2>
+              <button type="button" class="element__button-like button"></button>
+            </div>
+          </div>
+          <div class="element">
+            <img
+              src="./images/Florida.jpg"
+              alt="Фотокарточка"
+              class="element__image">
+            <div class="element__title-block">
+              <h2 class="element__title">Florida</h2>
+              <button type="button" class="element__button-like button"></button>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer class="footer">
+        <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
+      </footer>
+      <div class="popup">
+        <div class="popup__body">
+          <div class="popup__container">
+            <button type="button" class="popup__button-close button"></button>
+            <h2 class="popup__title">Редактировать профиль</h2>
+            <form name="form-profile" class="popup__form">
+              <input
+                type="text"
+                name="popup-name"
+                class="popup__input popup__input_type_name"
+                placeholder="Жак-Ив Кусто"
+                required>
+              <input
+                type="text"
+                name="popup-job"
+                class="popup__input popup__input_type_job"
+                placeholder="Исследователь океана"
+                required>
+              <button type="submit" class="popup__button-submit button">Сохранить</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="scripts/index.js"></script>
+  </body>
+</html>

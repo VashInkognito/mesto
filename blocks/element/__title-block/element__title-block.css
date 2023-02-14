@@ -1,0 +1,8 @@
+.element__title-block {
+  width: 246px;
+  min-height: 79px;
+  display: grid;
+  grid-template-columns: 1fr 22px;
+  align-items: center;
+  margin: auto;
+}

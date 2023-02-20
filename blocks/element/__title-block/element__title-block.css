@@ -1,8 +1,8 @@
 .element__title-block {
-  width: 246px;
-  min-height: 79px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 25px 21px 25px 21px;
   display: grid;
   grid-template-columns: 1fr 22px;
   align-items: center;
-  margin: auto;
 }

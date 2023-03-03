@@ -1,7 +1,37 @@
-
-// Глобальные переменные
-const popUp = document.querySelector('.popup');
-//
+// Массив элементов(Карточек)
+const elements = [
+  {
+    title: 'Village house',
+    image: './images/derevenskii-dom.jpg',
+    alt: 'Village house'
+  },
+  {
+    title: 'Main Botanical Garden',
+    image: './images/botanical_garden.jpg',
+    alt: 'Main Botanical Garden'
+  },
+  {
+    title: 'Mayak Gamova',
+    image: './images/mayak_gamova.jpg',
+    alt: 'Mayak Gamova'
+  },
+  {
+    title: 'Ivanovo Oblast',
+    image: './images/ivanovo_oblast.jpg',
+    alt: 'Ivanovo Oblast'
+  },
+  {
+    title: 'Arkhangelsk Oblast',
+    image: './images/arkhangelsk_oblast.jpg',
+    alt: 'Arkhangelsk Oblast'
+  },
+  {
+    title: 'Krasnoyarsk Krai',
+    image: './images/krasnoyarsk_krai.jpg',
+    alt: 'Krasnoyarsk Krai'
+  }
+]; 
+//--------------------------------------------------------------------//
 // Глобальные переменные для popUpEditProfile
 const popUpEditProfile = document.querySelector('.popup_type_edit-profile');
 const buttonClosePopUpEditProfile = document.querySelector('.popup__button-close-pop-up-edit-profile');
@@ -65,39 +95,6 @@ function handleFormSubmitEdit(event) {
 formElementEdit.addEventListener('submit', handleFormSubmitEdit);
 //--------------------------------------------------------------------//
 //----------------------------Popup-AddCard---------------------------//
-// Массив элементов(Карточек)
-const elements = [
-  {
-    title: 'Village house',
-    image: './images/derevenskii-dom.jpg',
-    alt: 'Village house'
-  },
-  {
-    title: 'Main Botanical Garden',
-    image: './images/botanical_garden.jpg',
-    alt: 'Main Botanical Garden'
-  },
-  {
-    title: 'Mayak Gamova',
-    image: './images/mayak_gamova.jpg',
-    alt: 'Mayak Gamova'
-  },
-  {
-    title: 'Ivanovo Oblast',
-    image: './images/ivanovo_oblast.jpg',
-    alt: 'Ivanovo Oblast'
-  },
-  {
-    title: 'Arkhangelsk Oblast',
-    image: './images/arkhangelsk_oblast.jpg',
-    alt: 'Arkhangelsk Oblast'
-  },
-  {
-    title: 'Krasnoyarsk Krai',
-    image: './images/krasnoyarsk_krai.jpg',
-    alt: 'Krasnoyarsk Krai'
-  }
-]; 
 // Слушатель открытия PopUpAddCard
 createNewElementButton.addEventListener('click', function () {
   openPopUp(popUpAddElement);
@@ -107,25 +104,6 @@ createNewElementButton.addEventListener('click', function () {
 buttonClosePopUpAddCard.addEventListener('click', function () {
   closePopUp(popUpAddElement);
 });
-//--------------------------------------------------------------------//
-// Функция обработки данных формы
-function handleFormSubmitAdd(event) {
-  event.preventDefault();
-  const title = titleInput.value;
-  const image = imageInput.value;
-  const alt = titleInput.value;
-  const createCard = {
-    title: title,
-    image: image,
-    alt: alt,
-}; 
-  createElement(createCard);
-  closePopUp(popUpAddElement);
-  formElementAdd.reset();
-}
-//--------------------------------------------------------------------//
-// Слушатель сохранения формы
-formElementAdd.addEventListener('submit', handleFormSubmitAdd);
 //--------------------------------------------------------------------//
 // Функция создания карточки
 function createElement(element) {
@@ -160,16 +138,33 @@ function createElement(element) {
     popUpImage.alt = event.target.alt;
     popUpCaption.textContent = event.target.alt;
   });
-  //--------------------------------------------//
-  // Создание карточки
-  elementsList.prepend(newElement);
+  return newElement;
+};
+//--------------------------------------------------------------------//
+// Функция добавления карточки в лист
+const renderCard = function(title, image) {
+  elementsList.prepend(createElement({title, image}));
 };
 //--------------------------------------------------------------------//
 // Выполнение функции createElement, для каждого элемента массива
-elements.forEach(createElement);
+elements.forEach(function(element) {
+  renderCard(element.title, element.image);
+});
+//--------------------------------------------------------------------//
+// Функция обработки данных формы
+function handleFormSubmitAdd(event) {
+  event.preventDefault(); 
+  renderCard(titleInput.value, imageInput.value);
+  closePopUp(popUpAddElement);
+  formElementAdd.reset();
+};
+//--------------------------------------------------------------------//
+// Слушатель сохранения формы
+formElementAdd.addEventListener('submit', handleFormSubmitAdd);
 //--------------------------------------------------------------------//
 //----------------------------Popup-Picture---------------------------//
 // Слушатель закрытия PopUpPicture
 buttonClosePopUpPicture.addEventListener('click', function () {
   closePopUp(popUpPicture);
 });
+//--------------------------------------------------------------------//
